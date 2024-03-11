@@ -1,6 +1,11 @@
 .box {
   border: 2px solid skyblue;
   border-radius: 15px;
-  margin: 20px;
+  margin: 10px;
   padding: 10px;
+}
+
+.visited {
+  background-color: aquamarine;
+  color: black;
 }

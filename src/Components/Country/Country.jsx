@@ -10,10 +10,9 @@ const Country = ({ countries }) => {
   const handleClick = () => {
     setVisited(!visited);
   };
-
   return (
-    <div className="box">
-      <h2>Name: {name.common}</h2>
+    <div className={`box ${visited ? "visited" : "no-visited"}`}>
+      <h2 style={{ color: visited && "purple" }}>Name: {name.common}</h2>
       <img src={flags.png} alt="" />
       <p>Population: {population}</p>
       <p>Area: {area}</p>
