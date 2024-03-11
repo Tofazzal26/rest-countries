@@ -6,6 +6,12 @@ import "../Countries/Countries.css";
 const Countries = () => {
   const [countries, setCountries] = useState([]);
   const [visitedCountry, setVisitedCountry] = useState([]);
+  const [countryFlags, setCountryFlags] = useState([]);
+
+  const handleVisitedFlags = (flags) => {
+    const newFlags = [...countryFlags, flags];
+    setCountryFlags(newFlags);
+  };
 
   const handleVisitedCountry = (country) => {
     const newCountryList = [...visitedCountry, country];
@@ -24,11 +30,15 @@ const Countries = () => {
       {visitedCountry.map((visited) => (
         <li key={visited.cca3}>{visited.name.common}</li>
       ))}
+      {countryFlags.map((flags, ids) => (
+        <img style={{ height: "100px" }} src={flags} key={ids} />
+      ))}
       <div className="box-container">
         {countries.map((countries) => (
           <Country
             countries={countries}
             handleVisitedCountry={handleVisitedCountry}
+            handleVisitedFlags={handleVisitedFlags}
             key={countries.cca3}
           />
         ))}
